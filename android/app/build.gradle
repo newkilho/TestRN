@@ -98,8 +98,8 @@ android {
         applicationId "net.kilho.testrn"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 3
-        versionName "0.0.1"
+        versionCode 5
+        versionName "0.0.5"
     }
 
     splits {
