@@ -1,1 +1,1 @@
-#Test React Native
+Test React Native
