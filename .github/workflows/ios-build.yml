@@ -61,4 +61,4 @@ jobs:
         with:
           to: ${{ secrets.TELEGRAM_CHAT_ID }}
           token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-          message: 'iOS build successful!'
+          message: 'iOS build successful!!!'
