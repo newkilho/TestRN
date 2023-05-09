@@ -1,0 +1,32 @@
+name: iOS Build and Notify
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    name: Build for iOS
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: '14.x'
+    - name: Install dependencies
+      run: npm install
+    - name: Build for iOS
+      run: npx react-native run-ios --configuration Release
+      env:
+        APPLE_ID: ${{ secrets.APPLE_ID }}
+        APPLE_PASSWORD: ${{ secrets.APPLE_PASSWORD }}
+    - name: Notify build result
+      uses: appleboy/telegram-action@v0.2.2
+      with:
+        to: ${{ secrets.TELEGRAM_CHAT_ID }}
+        token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        message: 'iOS build successful!'
