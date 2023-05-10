@@ -52,7 +52,8 @@ jobs:
             ${{ runner.os }}-pods-
 
       - name: Install Pods
-        run: cd ios && pod install --repo-update && cd ..
+        #run: cd ios && pod install --repo-update && cd ..
+        run: pod install --repo-update
 
       - name: Notify build result
         uses: appleboy/telegram-action@master
